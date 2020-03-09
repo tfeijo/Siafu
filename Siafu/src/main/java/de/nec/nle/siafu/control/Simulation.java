@@ -33,7 +33,7 @@ import de.nec.nle.siafu.model.Agent;
 import de.nec.nle.siafu.model.SimulationData;
 import de.nec.nle.siafu.model.Trackable;
 import de.nec.nle.siafu.model.World;
-import de.nec.nle.siafu.output.CSVPrinter;
+import de.nec.nle.siafu.output.JSONKafkaIntegration;
 import de.nec.nle.siafu.output.NullPrinter;
 import de.nec.nle.siafu.output.SimulatorOutputPrinter;
 
@@ -188,7 +188,7 @@ public class Simulation implements Runnable {
 
 		if (type.equalsIgnoreCase("csv")) {
 			System.out.println("CSV output selected");
-			return new CSVPrinter(world, siafuConfig);
+			return new JSONKafkaIntegration(world, siafuConfig);
 		} else if (type.equalsIgnoreCase("null")) {
 			return new NullPrinter();
 		} else {
